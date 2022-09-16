@@ -26,14 +26,17 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-
+    - name: Automatic tagging of releases
+      id: increment-git-tag
+      run: |
+        bash ./build/git_update.sh -v patch
 
     - name: Build docker image, tag, and push to AWS ECR
       id: build-image
       env: 
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: flask-blog
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
