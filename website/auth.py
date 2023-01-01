@@ -13,4 +13,3 @@ def signUp():
         return render_template("posts.html")
 
 
-    
