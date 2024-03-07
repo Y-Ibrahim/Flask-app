@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+  <!-- Filter Buttons  -->
+  {% for image in imageCards %}
+  <h1>{{ image.id }}</h1>
+  {% endfor %}
+  <div id="filter-buttons">
+    <button class="gallery-button" data-name="all">Show All</button>
+    <button class="gallery-button" data-name="static">Static</button>
+    <button class="gallery-button" data-name="animated">Animated</button>
+    <button class="post-button" onclick="openForm()">New Post</button>
+
+  </div>
+
+  <!-- Image Cards -->
+  <div id="filter-cards">
+    <div class="card" data-name="static">
+      <img src="https://i.pinimg.com/736x/c9/62/2c/c9622c0de8759d862344ef80c7f4c364.jpg" alt="">
+      <div class="card-body">
+        <h6 class="card-title">Image</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet 
+          consectetur adipisicing elit. 
+          Sunt autem molestias, 
+          dolor odit quo sapiente?</p>
+      </div>
+    </div>
+    <div class="card" data-name="animated">
+      <img src="https://i.pinimg.com/736x/c9/62/2c/c9622c0de8759d862344ef80c7f4c364.jpg" alt="">
+      <div class="card-body">
+        <h6 class="card-title">Image</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet 
+          consectetur adipisicing elit. 
+          Sunt autem molestias, 
+          dolor odit quo sapiente?</p>
+      </div>
+    </div>
+    <div class="card" data-name="static">
+      <img src="https://i.pinimg.com/736x/c9/62/2c/c9622c0de8759d862344ef80c7f4c364.jpg" alt="">
+      <div class="card-body">
+        <h6 class="card-title">Image</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet 
+          consectetur adipisicing elit. 
+          Sunt autem molestias, 
+          dolor odit quo sapiente?</p>
+      </div>
+    </div>
+  </div>
+  <!-- Post card -->
+  <div class="form-overlay" id="formOverlay">
+    <div class="form-container" id="postCardForm">
+      <form action="#" method="post" enctype="multipart/form-data">
+        <span class="close-btn" onclick="closeForm()">&times;</span>
+        <label class="form-label" for="imageType">Image Type:</label>
+        <input type="text" id="imageType" name="imageType" required>
+        
+        <label class="form-label" for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        
+        <label class="form-label" for="imageTitle">Image Title:</label>
+        <input type="text" id="imageTitle" name="imageTitle" required>
+        
+        <label class="form-label" for="imageText">Image Text:</label>
+        <textarea id="imageText" name="imageText" required></textarea>
+        
+        <input type="submit" value="Submit">
+
+      </form>
+    </div>
+  </div>  
+</div>
+{% endblock %}

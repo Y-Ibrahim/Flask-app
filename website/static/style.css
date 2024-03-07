@@ -1,0 +1,185 @@
+.nav { 
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (last value) as needed */
+}
+
+#navbarNav li a {
+font-weight: bold;
+    
+}
+
+
+.content h1 {
+    color: black;
+    
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-image: url('https://getwallpapers.com/wallpaper/full/0/a/1/255621.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    /* image-rendering: pixelated; */
+    height: 100vh;
+    animation: fade 10s infinite;
+}
+
+
+
+/* @keyframes fade {
+  53.33% {
+    background-image: url('https://wallpapercave.com/wp/wp6592772.jpg');
+  }
+  99.66% {
+    background-image: url('https://wallpapercave.com/wp/wp1933983.png');
+  }
+} */
+
+
+/* Gallery Page */
+.container {
+    position: relative;
+    max-width: 1350px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    background-color: red;
+}
+
+#filter-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
+.gallery-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button.active {
+    background: red;
+    color: white;
+}
+
+#filter-cards {
+    display: flex;
+    margin-top: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex-grow: 1;
+    flex-basis: 300px;
+    background-color:  #94a8b3;
+    padding: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card.hide {
+    display: none;
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 15px 20px 20px;
+}
+
+.card-title {
+    font-size:23px;
+    font-weight: 50px;
+    color: #333;
+}
+
+.card-text {
+    font-size:17px;
+    color: #333;
+}
+
+/* Popup content */
+
+.post-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* semi-transparent black background */
+    z-index: 9999;
+  }
+  
+  .form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
