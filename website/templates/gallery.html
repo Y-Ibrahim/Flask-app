@@ -2,9 +2,6 @@
 {% block title %}Gallery{% endblock %}
 {% block content %}
   <!-- Filter Buttons  -->
-  {% for image in imageCards %}
-  <h1>{{ image.id }}</h1>
-  {% endfor %}
   <div id="filter-buttons">
     <button class="gallery-button" data-name="all">Show All</button>
     <button class="gallery-button" data-name="static">Static</button>
@@ -45,6 +42,16 @@
           dolor odit quo sapiente?</p>
       </div>
     </div>
+    {% for image in imageCards %}
+    <div class="card" data-name="static">
+      <img src="{{ image.image_url }}"" alt="">
+      <div class="card-body">
+        <h6 class="card-title">{{ image.image_title }}</h6>
+        <p class="card-text">{{ image.image_text }}</p>
+      </div>
+    </div>
+    {% endfor %}
+
   </div>
   <!-- Post card -->
   <div class="form-overlay" id="formOverlay">
@@ -54,8 +61,8 @@
         <label class="form-label" for="imageType">Image Type:</label>
         <input type="text" id="imageType" name="imageType" required>
         
-        <label class="form-label" for="image">Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
+        <label class="form-label" for="image">Image URL:</label>
+        <input type="text" id="image" name="image" accept="image/*" required>
         
         <label class="form-label" for="imageTitle">Image Title:</label>
         <input type="text" id="imageTitle" name="imageTitle" required>
