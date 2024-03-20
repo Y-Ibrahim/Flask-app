@@ -1,0 +1,60 @@
+version: '2'
+services:
+  web: 
+    depends_on:
+      - db
+    build: .
+    links: 
+      - db
+    ports:   
+      - "5000:5000"
+    volumes:
+      - ./app:/websites
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: example_user
+      DB_PASSWORD: example_password
+      DB_NAME: flaskDB  
+    networks:
+      - app-nw
+
+  db:
+    container_name: flask_mysql
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw 
+      MYSQL_DATABASE: flaskDB
+      MYSQL_USER: example_user
+      MYSQL_PASSWORD: example_password
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+    networks:
+      - app-nw
+
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: flask_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA:PORT: 3306
+      PMA_USER: example_user
+      PMA_PASSWORD: example_password
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    networks:
+      - app-nw
+
+networks:
+  app-nw:
+    driver: bridge
+
+volumes:
+  mysql-data:
