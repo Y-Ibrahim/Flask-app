@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS flaskDB;
+
+CREATE TABLE image (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_type VARCHAR(100) NOT NULL,
+    image_url VARCHAR(2000) NOT NULL,
+    image_title VARCHAR(100) NOT NULL,
+    image_text VARCHAR(100) NOT NULL
+);
