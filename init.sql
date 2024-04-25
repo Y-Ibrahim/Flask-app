@@ -7,3 +7,5 @@ CREATE TABLE image (
     image_title VARCHAR(100) NOT NULL,
     image_text VARCHAR(100) NOT NULL
 );
+
+
